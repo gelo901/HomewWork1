@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+ </head>
+ <body>
+  <script>
+/* 
+S = (K*P*d)/D
+
+S — сумма процентов (доход),
+K — первоначальная сумма (капитал),
+P — годовая процентная ставка,
+d — количество дней начисления процентов по привлеченному вкладу,
+D — количество дней в году (365 или 366 (в високосный год).
+*/
+
+var K = +prompt("Ваша сумма"),
+	year = +prompt("Введите год"),
+	P = 0.22,
+	d,
+	D,
+	UAH,
+	vallut,
+	nalog,
+  vusoksn;
+
+if (year % 4 == 0){
+   d = 547; 
+   D = 364;
+   vusoksn = "Год является высокостным (366 дней)";
+}else{
+   vusoksn = "Год не является высокостным (365 дней)";
+   d = 548;
+   D = 365;
+ }
+
+var res = (K * P * d - 1) / D,
+  okrug = Math.round(res),
+  nalog = okrug / 100 * 19.5,
+	pribul =  okrug + K,
+	day = res / D;
+ 
+if(day < 1){
+
+  UAH = day.toFixed(2) * 100;
+  vallut = " коп"
+}else{
+ 
+  UAH = Math.round(day);
+  vallut = " грн"
+
+}
+console.log("Сумма " + K + " грн");
+console.log(vusoksn);
+console.log("Приблизительно " + UAH + vallut + " в день");
+console.log(okrug + " грн" + " прибль");
+console.log(pribul + " грн" + " сумма банковского депозита с процентами ");
+console.log(pribul - nalog + " грн" + " сумма банковского депозита с процентами и налогом ");
+
+// Проверялся на сайтах: https://insiders.com.ua/depozity/depozitnyj-kalkulyator , https://fin-calc.org.ua/ru/deposit/calculate/
+
+
+  </script>
+ </body>
+</html>
