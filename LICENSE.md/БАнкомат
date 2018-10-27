@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+ </head>
+ <body>
+  <script>
+
+/*Ура! 12 ночи я сделал это АЛИЛУЯ!*/
+ 
+ var  user = 500,
+	    manyNal = 10,
+	    result,
+      ostatok,
+      UAH500,
+      UAH200,
+      UAH100,
+      UAH50,
+      UAH20,
+      UAH10,
+      UAH5,
+      UAH2,
+      UAH1;
+	    
+
+  console.log(`Ваша cумма ${user}`);
+  bankomat(user)
+  function bankomat(x){
+   UAH500 = Math.floor(x / 500);
+   if(UAH500 > manyNal){
+    UAH500 = manyNal;
+   }x =  x - UAH500 * 500;
+   
+    UAH200 = Math.floor(x / 200);
+   if(UAH200 > manyNal){
+    UAH200 = manyNal;
+   } x = x - UAH200 * 200;
+   
+   UAH100 = Math.floor(x / 100);
+   if(UAH100 > manyNal){
+    UAH100 = manyNal;
+   }x = x - UAH100 * 100;
+   
+   UAH50 = Math.floor(x / 50);
+   if(UAH50 > manyNal){
+    UAH50 = manyNal;
+   }x = x  - UAH50 * 50;
+   
+   UAH20 = Math.floor(x / 20);
+   if(UAH20 > manyNal){
+    UAH20 = manyNal;
+   }x = x - UAH20 * 20;
+   
+   UAH10 = Math.floor(x / 10);
+   if(UAH10 > manyNal){
+    UAH10 = manyNal;
+   }x = x - UAH10 * 10;
+   
+   UAH5 = Math.floor(x / 5);
+   if(UAH5 > manyNal){
+    UAH5 = manyNal;
+   }x = x - UAH5 * 5;
+   
+   UAH2 = Math.floor(x / 2);
+   if(UAH2 > manyNal){
+    UAH2 = manyNal;
+   }x = x - UAH2 * 2;
+
+   UAH1 = Math.floor(x / 1);
+   if(UAH1 > manyNal){
+    UAH1 = manyNal;
+   }x = x - UAH1 * 1;
+
+   if( x === 0){
+    summ = UAH500 + UAH200 + UAH100 + UAH50 + UAH20 + UAH10 + UAH5 + UAH2 + UAH1;
+    console.log(`500 грн ${UAH500} купюра`);
+    console.log(`200 грн ${UAH200} купюра`);
+    console.log(`100 грн ${UAH100} купюра`);
+    console.log(`50 грн ${UAH50} купюра`);
+    console.log(`20 грн ${UAH20} купюра`);
+    console.log(`10 грн ${UAH10} купюра`);
+    console.log(`5 грн ${UAH5} купюра`);
+    console.log(`2 грн ${UAH2} купюра`);
+    console.log(`1 грн ${UAH1} купюра`);
+    console.log( `И того ${summ} купюра`);
+} else{
+  console.log( `Не достаточно купюр!` );
+
+}
+    
+   
+  	
+}
+
+
+  </script>
+ </body>
+</html>
