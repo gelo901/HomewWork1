@@ -9,9 +9,8 @@
 /*Ура! 12 ночи я сделал это АЛИЛУЯ!*/
  
  var  user = +prompt(`Введите сумму`),
-	    manyNal = 10,
-	    result,
-      ostatok,
+      manyNal = 10,
+      result,
       UAH500,
       UAH200,
       UAH100,
@@ -22,9 +21,8 @@
       UAH2,
       UAH1;
 	    
-
   console.log(`Ваша cумма ${user}`);
-  bankomat(user)
+  bankomat(user);
   function bankomat(x){
       UAH500 = Math.floor(x / 500);
    if(UAH500 > manyNal){
