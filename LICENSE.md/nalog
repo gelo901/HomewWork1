@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+ </head>
+ <body>
+  <script>
+
+ /*0 || 8376,  Один
+ 8376 || 34001, 
+ 34001 || 82401, 
+ 82401 || 171851, 
+ 171851 || 373651
+
+ 0 || 16751,  Супруги
+ 16751 || 68001, 
+ 68001 || 137301, 
+ 137301 || 209251, 
+ 209251 || 373651
+
+Скрипты писались на основе статьи на сайте: https://habr.com/post/144820/ Раздел федеральный налог.
+*/  
+
+
+
+var spouses = +confirm("Состоите ли вы в браке? 'Отмена' если нет"),
+    summ,
+    nalog,
+    result,
+    okr,
+    okrNAL,
+    okrProts,
+    shet,
+    change;
+
+function one(x, y, c){
+  if(x > 0 && x < 8376){                                                        //10%
+  nalog = x / 100 * 10;
+  result = x - nalog;
+  okrNAL = Math.round(result / 100) * 100;
+  okr = Math.round(nalog / 100) * 100;
+  okrProts = 10;
+  }
+ else if(x >= 8376 && x < 34001){                                               //15%
+  c = x - 8376;
+  y = 8376 * 0.1 + c * 0.15;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+ }
+
+ else if(x >= 34001 && x < 82401){                                              //25%
+  shet = 34001 - 8376; 
+  c = x - 34001;
+  y = 8376 * 0.1 + shet * 0.15 + c * 0.25;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  
+}
+else if(x >= 82401 && x < 171851){                                              //28%
+  shet =  82401 - 34001;
+  c = x - 82401;
+  y = 8376 * 0.1 + 25625 * 0.15 + shet * 0.25 + c * 0.28;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  }
+
+else if(x >= 171851 && x < 373651){                                             //33%
+  shet =  171851 - 82401;
+  c = x - 171851;
+  y = 8376 * 0.1 + 25625 * 0.15 + 48400 * 0.25 + shet * 0.28 + c * 0.33 ;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  
+}
+
+else if(x >= 373651){                                                           //35%
+  nalog = x / 100 * 35;
+  result = x - nalog;
+  okrNAL = Math.round(result / 100) * 100;
+  okr = Math.round(nalog / 100) * 100;
+  okrProts = 35;
+}
+  
+else{
+  return;
+}
+
+  console.log(x + ' грн' + ' - ваш доход');
+  console.log(okrNAL + ' грн' + ' - ваш доход c вычетом налога');
+  console.log(okr + ' грн' + ' - налог');
+  console.log( Math.round(okrProts) + '%' + ' - от дохода');
+
+}
+
+
+
+function too(x, y, c){
+
+if(x > 0 && x < 16751){                                                          //10%
+  nalog = x / 100 * 10;
+  result = x - nalog;
+  okrNAL = Math.round(result / 100) * 100;
+  okr = Math.round(nalog / 100) * 100;
+  okrProts = 10;
+  }
+ else if(x >= 16751 && x < 68001){                                               //15%
+  c = x - 16751;
+  y = 16751 * 0.1 + c * 0.15;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+ }
+
+ else if(x >= 68001 && x < 137301){                                              //25%
+  shet = 68001 - 16751; 
+  c = x - 68001;
+  y = 16751 * 0.1 + shet * 0.15 + c * 0.25;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  
+}
+else if(x >= 137301 && x < 209251){                                              //28%
+  shet =  137301 - 68001;
+  c = x - 137301;
+  y = 16751 * 0.1 + 51250 * 0.15 + shet * 0.25 + c * 0.28;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  }
+
+else if(x >= 209251 && x < 373651){                                              //33%
+  shet =  209251 - 137301;
+  c = x - 209251;
+  y = 16751 * 0.1 + 51250 * 0.15 + 69300 * 0.25 + shet * 0.28 + c * 0.33;
+  nalog = x - y;
+  result = y / x;
+  okrNAL = Math.round(nalog);
+  okr = Math.round(y);
+  okrProts = result.toFixed(2) * 100;
+  
+}
+
+else if(x >= 373651){                                                            //35%
+  nalog = x / 100 * 35;
+  result = x - nalog;
+  okrNAL = Math.round(result / 100) * 100;
+  okr = Math.round(nalog / 100) * 100;
+  okrProts = 35;
+}
+  
+else{
+  return;
+}
+
+  console.log(x + ' грн' + ' - ваш доход');
+  console.log(okrNAL + ' грн' + ' - ваш доход c вычетом налога');
+  console.log(okr + ' грн' + ' - налог');
+  console.log( Math.round(okrProts) + '%' + ' - от дохода');
+
+}
+
+ 
+if(spouses){
+  summ = +prompt("Введите ваш доход")
+  too(summ);
+} else{
+  summ = +prompt("Введите ваш доход")
+  one(summ);
+}
+
+  </script>
+ </body>
+</html>
