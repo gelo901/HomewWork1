@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+ </head>
+ <body>
+  <script>
+
+ 
+ var   manyNal = 10,
+	    result,
+       user = 6700;
+       
+	 
+ 
+  
+   var uah = [500, 200, 100, 50, 20, 10, 5, 2, 1];
+
+    for(var i = 0; i < uah.length; i++){
+      
+    result = Math.floor(user / uah[i]);
+   
+   if(result > 10){
+      result = 10;
+   }
+   user = user - uah[i] * result;
+      
+   console.log(`${uah[i]} грн ${result} купюра`);
+
+   if()
+
+   
+   }
+
+ 
+
+  </script>
+   }
+ </body>
+</html>
